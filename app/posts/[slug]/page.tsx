@@ -1,18 +1,18 @@
-import prisma from "@/lib/db";
+import prisma from '@/lib/db'
 
 export default async function PostPage({
   params: { slug },
 }: {
-  params: { slug: string };
+  params: { slug: string }
 }) {
   const post = await prisma.post.findUnique({
     where: {
       slug,
     },
-  });
+  })
 
   if (!post) {
-    return <p>Post not found</p>;
+    return <p>Post not found</p>
   }
 
   return (
@@ -20,5 +20,5 @@ export default async function PostPage({
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <p>{post.content}</p>
     </>
-  );
+  )
 }

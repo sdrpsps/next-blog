@@ -1,78 +1,81 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+/* eslint-disable no-console */
+import type { Prisma } from '@prisma/client'
+import process from 'node:process'
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    name: "Alice",
-    password: "alice",
-    email: "alice@prisma.io",
+    name: 'Alice',
+    password: 'alice',
+    email: 'alice@prisma.io',
     posts: {
       create: [
         {
-          title: "Join the Prisma Discord",
-          slug: "join-the-prisma-discord",
-          content: "https://pris.ly/discord",
+          title: 'Join the Prisma Discord',
+          slug: 'join-the-prisma-discord',
+          content: 'https://pris.ly/discord',
           published: true,
         },
       ],
     },
   },
   {
-    name: "Nilu",
-    password: "nilu",
-    email: "nilu@prisma.io",
+    name: 'Nilu',
+    password: 'nilu',
+    email: 'nilu@prisma.io',
     posts: {
       create: [
         {
-          title: "Follow Prisma on Twitter",
-          slug: "follow-prisma-on-twitter",
-          content: "https://www.twitter.com/prisma",
+          title: 'Follow Prisma on Twitter',
+          slug: 'follow-prisma-on-twitter',
+          content: 'https://www.twitter.com/prisma',
           published: true,
         },
       ],
     },
   },
   {
-    name: "Mahmoud",
-    password: "mahmoud",
-    email: "mahmoud@prisma.io",
+    name: 'Mahmoud',
+    password: 'mahmoud',
+    email: 'mahmoud@prisma.io',
     posts: {
       create: [
         {
-          title: "Ask a question about Prisma on GitHub",
-          slug: "ask-a-question-about-prisma-on-github",
-          content: "https://www.github.com/prisma/prisma/discussions",
+          title: 'Ask a question about Prisma on GitHub',
+          slug: 'ask-a-question-about-prisma-on-github',
+          content: 'https://www.github.com/prisma/prisma/discussions',
           published: true,
         },
         {
-          title: "Prisma on YouTube",
-          slug: "prisma-on-youtube",
-          content: "https://pris.ly/youtube",
+          title: 'Prisma on YouTube',
+          slug: 'prisma-on-youtube',
+          content: 'https://pris.ly/youtube',
           published: true,
         },
       ],
     },
   },
-];
+]
 
 async function main() {
-  console.log(`Start seeding ...`);
+  console.log(`Start seeding ...`)
   for (const u of userData) {
     const user = await prisma.user.create({
       data: u,
-    });
-    console.log(`Created user with id: ${user.id}`);
+    })
+    console.log(`Created user with id: ${user.id}`)
   }
-  console.log(`Seeding finished.`);
+  console.log(`Seeding finished.`)
 }
 
 main()
   .then(async () => {
-    await prisma.$disconnect();
+    await prisma.$disconnect()
   })
   .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })

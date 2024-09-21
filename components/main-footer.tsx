@@ -8,6 +8,7 @@ export default function MainFooter() {
           className="link mx-1"
           href="https://nextjs.org"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Next.js
         </a>
@@ -16,10 +17,11 @@ export default function MainFooter() {
           className="link mx-1"
           href="https://tailwindcss.com"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Tailwind CSS
         </a>
       </p>
     </footer>
-  );
+  )
 }

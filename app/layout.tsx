@@ -1,18 +1,18 @@
-import MainFooter from "@/components/main-footer";
-import MainHeader from "@/components/main-header";
-import type { Metadata } from "next";
-import { HarmonySans } from "./fonts";
-import "./globals.css";
+import type { Metadata } from 'next'
+import MainFooter from '@/components/main-footer'
+import MainHeader from '@/components/main-header'
+import { HarmonySans } from './fonts'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Sunny's Blog",
-  description: "Think, Write, Code",
-};
+  title: 'Sunny\'s Blog',
+  description: 'Think, Write, Code',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="zh-CN">
@@ -22,5 +22,5 @@ export default function RootLayout({
         <MainFooter />
       </body>
     </html>
-  );
+  )
 }

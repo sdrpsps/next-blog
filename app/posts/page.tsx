@@ -1,5 +1,5 @@
-import prisma from "@/lib/db";
-import Link from "next/link";
+import prisma from '@/lib/db'
+import Link from 'next/link'
 
 export default async function PostsPage() {
   const posts = await prisma.post.findMany({
@@ -7,13 +7,13 @@ export default async function PostsPage() {
       published: true,
     },
     orderBy: {
-      createdAt: "desc",
+      createdAt: 'desc',
     },
-  });
+  })
 
   return (
     <ul>
-      {posts.map((post) => (
+      {posts.map(post => (
         <li key={post.id} className="mb-4">
           <time
             className="italic pr-2"
@@ -27,5 +27,5 @@ export default async function PostsPage() {
         </li>
       ))}
     </ul>
-  );
+  )
 }

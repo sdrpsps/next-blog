@@ -1,3 +1,3 @@
 export default function ArchivePage() {
-  return <div>Archive</div>;
+  return <div>Archive</div>
 }

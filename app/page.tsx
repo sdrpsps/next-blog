@@ -18,7 +18,7 @@ export default function Home() {
       </p>
       <ul className="mt-6 leading-8 flex gap-4">
         <li className="link">
-          <a href="https://github.com/sdrpsps" target="_blank">
+          <a href="https://github.com/sdrpsps" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
         </li>
@@ -27,5 +27,5 @@ export default function Home() {
         </li>
       </ul>
     </>
-  );
+  )
 }
