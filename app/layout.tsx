@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body className={`${HarmonySans.className} antialiased`}>
         <MainHeader />
-        {children}
+        <main>{children}</main>
         <MainFooter />
       </body>
     </html>
