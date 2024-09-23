@@ -1,6 +1,10 @@
 import { getPosts } from '@/lib/post'
 import Link from 'next/link'
 
+export const metadata = {
+  title: 'Posts',
+}
+
 export default async function PostsPage() {
   const posts = await getPosts()
 

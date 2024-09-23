@@ -1,6 +1,16 @@
 import type { Post } from '@prisma/client'
+import LoadingBar from '@/components/loading-bar'
 import { getAvailableArchiveMonthsByYear, getAvailableArchiveYears, getPostsByYearAndMonth } from '@/lib/archive'
 import Link from 'next/link'
+import { Suspense } from 'react'
+
+export async function generateMetadata({ params: { filters } }: { params: { filters: string[] } }) {
+  const [year, month] = filters ?? []
+
+  return {
+    title: year && month ? `${year}-${month} Archive` : year ? `${year} Archive` : 'Archive',
+  }
+}
 
 async function FilterHeader({ year, month }: { year?: string, month?: string }) {
   const availableYears = await getAvailableArchiveYears()
@@ -65,9 +75,9 @@ export default async function ArchivePage({ params }: { params: { filters: strin
   const [year, month] = params.filters ?? []
 
   return (
-    <>
+    <Suspense fallback={<LoadingBar />}>
       <FilterHeader year={year} month={month} />
       <FilterContent year={year} month={month} />
-    </>
+    </Suspense>
   )
 }
