@@ -12,6 +12,16 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      animation: {
+        'loading-bar': 'moveLoadingBar 2s infinite ease-in-out',
+      },
+      keyframes: {
+        moveLoadingBar: {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%': { transform: 'translateX(300%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
     },
   },
   plugins: [],
