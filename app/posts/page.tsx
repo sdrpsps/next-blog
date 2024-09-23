@@ -1,15 +1,8 @@
-import prisma from '@/lib/db'
+import { getPosts } from '@/lib/post'
 import Link from 'next/link'
 
 export default async function PostsPage() {
-  const posts = await prisma.post.findMany({
-    where: {
-      published: true,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-  })
+  const posts = await getPosts()
 
   return (
     <ul>

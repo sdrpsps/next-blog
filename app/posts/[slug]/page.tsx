@@ -1,15 +1,7 @@
-import prisma from '@/lib/db'
+import { getPostBySlug } from '@/lib/post'
 
-export default async function PostPage({
-  params: { slug },
-}: {
-  params: { slug: string }
-}) {
-  const post = await prisma.post.findUnique({
-    where: {
-      slug,
-    },
-  })
+export default async function PostPage({ params: { slug } }: { params: { slug: string } }) {
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return <p>Post not found</p>

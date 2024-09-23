@@ -1,5 +1,0 @@
-import LoadingBar from '@/components/loading-bar'
-
-export default function ArchivePage() {
-  return <LoadingBar />
-}
