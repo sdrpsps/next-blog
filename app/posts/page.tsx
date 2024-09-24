@@ -1,4 +1,5 @@
 import { getPosts } from '@/lib/post'
+import { unstable_noStore } from 'next/cache'
 import Link from 'next/link'
 
 export const metadata = {
@@ -6,6 +7,7 @@ export const metadata = {
 }
 
 export default async function PostsPage() {
+  unstable_noStore()
   const posts = await getPosts()
 
   return (

@@ -1,9 +1,9 @@
 export default function MainFooter() {
   return (
-    <footer className="text-center text-sm text-gray-500 pt-8 pb-2">
+    <footer className="text-center text-sm pt-8 pb-2">
       <p>© 2024 Sunny&apos;s Blog</p>
       <p>
-        Made with
+        🚀 Made with
         <a
           className="link mx-1"
           href="https://nextjs.org"
