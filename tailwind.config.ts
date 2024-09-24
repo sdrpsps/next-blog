@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -24,6 +26,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    typography(),
+    plugin(({ addVariant }) => {
+      addVariant('prose-inline-code', '&.prose :where(:not(pre)>code):not(:where([class~="not-prose"] *))')
+    }),
+  ],
 }
 export default config
