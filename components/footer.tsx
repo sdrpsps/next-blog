@@ -6,7 +6,7 @@ import { Input } from './ui/input'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 py-8 mt-10">
+    <footer className="bg-gray-100 dark:bg-gray-800 py-8">
       <div className="container mx-auto divide-y space-y-4 p-4">
         <nav className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <section className="flex flex-col gap-2">

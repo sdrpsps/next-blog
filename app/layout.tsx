@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <Container>{children}</Container>
+          <Container className="flex-1">{children}</Container>
           <Footer />
         </ThemeProvider>
       </body>
