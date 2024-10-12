@@ -1,6 +1,6 @@
 import { formatDate, getBlogPosts } from '@/lib/post'
 import Link from 'next/link'
-import PostCard from '../post-card'
+import PostCard from '../post/post-card'
 
 export default function LatestPosts() {
   const posts = getBlogPosts()

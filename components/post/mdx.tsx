@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { codeToHtml } from 'shiki'
-import LoadingBar from './loading-bar'
+import LoadingBar from '../loading-bar'
 
 async function CodeBlock({ children, className, ...props }: { children?: ReactNode, className?: string }) {
   const match = /language-(\w+)/.exec(className || '')

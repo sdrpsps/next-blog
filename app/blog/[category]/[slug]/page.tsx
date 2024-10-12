@@ -1,5 +1,6 @@
 import Breadcrumb from '@/components/breadcrumb'
-import MDX from '@/components/mdx'
+import MDX from '@/components/post/mdx'
+import UpdateViews from '@/components/post/update-views'
 import { formatDate, getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find(post => post.slug === params.slug)
 
   if (!post) {
@@ -42,6 +43,7 @@ export default function Post({ params }: { params: { slug: string } }) {
       <article className="prose dark:prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
         <MDX source={post?.content} />
       </article>
+      <UpdateViews slug={post?.slug} title={post?.metadata.title} category={post?.metadata.category} />
     </main>
   )
 }

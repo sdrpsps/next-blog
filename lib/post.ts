@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 import matter from 'gray-matter'
+import prisma from './db'
 
 // get all the mdx files from the dir
 function getMDXFiles(dir: string) {
@@ -28,10 +29,6 @@ function getMDXData(dir: string) {
       content,
     }
   })
-}
-
-export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app/blog/_contents'))
 }
 
 export function formatDate(date: string, includeRelative = false) {
@@ -72,4 +69,36 @@ export function formatDate(date: string, includeRelative = false) {
   }
 
   return `${fullDate} (${formattedDate})`
+}
+
+export function getBlogPosts() {
+  return getMDXData(path.join(process.cwd(), 'app/blog/_contents'))
+}
+
+export async function getTopCategories() {
+  try {
+    return await prisma.blog.findMany({
+      select: {
+        category: true,
+      },
+      distinct: ['category'],
+      orderBy: {
+        view_count: 'desc',
+      },
+    })
+  }
+  catch (error) {
+    console.error('Error getting top categories.', error)
+  }
+}
+
+export async function getPopularPosts() {
+  try {
+    return await prisma.blog.findMany({
+      orderBy: { view_count: 'desc' },
+    })
+  }
+  catch (error) {
+    console.error('Error getting popular posts.', error)
+  }
 }

@@ -1,4 +1,4 @@
-import PostCard from '@/components/post-card'
+import PostCard from '@/components/post/post-card'
 import { getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
