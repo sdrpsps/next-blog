@@ -3,6 +3,28 @@ import MDX from '@/components/mdx'
 import { formatDate, getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
+export function generateStaticParams() {
+  const posts = getBlogPosts()
+
+  return posts.map(post => ({
+    category: post.metadata.category,
+    slug: post.slug,
+  }))
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post = getBlogPosts().find(post => post.slug === params.slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  return {
+    title: post.metadata.title,
+    description: post.metadata.summary,
+  }
+}
+
 export default function Post({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find(post => post.slug === params.slug)
 

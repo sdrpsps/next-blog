@@ -2,6 +2,23 @@ import PostCard from '@/components/post-card'
 import { getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
+export async function generateStaticParams() {
+  return getBlogPosts().map(post => ({ category: post.metadata.category }))
+}
+
+export async function generateMetadata({ params }: { params: { category: string } }) {
+  const categories = getBlogPosts().map(post => post.metadata.category)
+
+  if (!categories.includes(params.category)) {
+    notFound()
+  }
+
+  return {
+    title: `${params.category.toUpperCase()}`,
+    description: `Articles about ${params.category}`,
+  }
+}
+
 export default function Category({ params }: { params: { category: string } }) {
   const posts = getBlogPosts().filter(post => post.metadata.category === params.category)
 
