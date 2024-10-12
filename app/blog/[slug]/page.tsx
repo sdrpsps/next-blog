@@ -1,4 +1,5 @@
 import Breadcrumb from '@/components/breadcrumb'
+import MDX from '@/components/mdx'
 import { formatDate, getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
@@ -17,7 +18,9 @@ export default function Post({ params }: { params: { slug: string } }) {
         <h1 className="text-3xl font-bold">{post?.metadata.title}</h1>
         <p className="text-sm text-gray-500">{formatDate(post?.metadata.publishedAt)}</p>
       </section>
-      <article className="prose">{post?.content}</article>
+      <article className="prose dark:prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
+        <MDX source={post?.content} />
+      </article>
     </main>
   )
 }

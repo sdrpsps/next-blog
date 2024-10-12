@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 import animate from 'tailwindcss-animate'
 
 const config: Config = {
@@ -58,7 +59,7 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       animation: {
-        'loading-bar': 'moveLoadingBar 2s infinite ease-in-out',
+        'loading-bar': 'moveLoadingBar 2s infinite cubic-bezier(0.65, 0.05, 0.36, 1)',
       },
       keyframes: {
         moveLoadingBar: {
@@ -69,6 +70,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [typography, animate],
 }
 export default config
