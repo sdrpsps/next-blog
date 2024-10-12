@@ -16,11 +16,11 @@ export default function CustomBreadcrumb({ category, title }: { category: string
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href={`/categories/${category}`}>{category}</BreadcrumbLink>
+          <BreadcrumbLink href={`/blog/${category}`}>{category ? category.charAt(0).toUpperCase() + category.slice(1) : ''}</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>{title}</BreadcrumbPage>
+          <BreadcrumbPage>{title || ''}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

@@ -9,7 +9,7 @@ export default function PopularPosts() {
       <ul className="space-y-2">
         {popularPosts.map(post => (
           <li key={post.title} className="max-w-sm overflow-hidden">
-            <Link href={`/posts/${post.title}`} className="flex items-center gap-2 group">
+            <Link href={`/blog/${post.metadata.category}/${post.slug}`} className="flex items-center gap-2 group">
               <ArrowRight className="flex-shrink-0 w-4 h-4 group-hover:translate-x-1 transition-all" />
               <span className="truncate">{post.title}</span>
             </Link>

@@ -14,7 +14,7 @@ export default function TopCategories() {
             asChild
             className="hover:scale-110 transition-all"
           >
-            <Link href={`/categories/${category}`}>{category}</Link>
+            <Link href={`/blog/${category}`}>{category}</Link>
           </Button>
         ))}
       </nav>

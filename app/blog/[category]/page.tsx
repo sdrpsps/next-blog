@@ -2,11 +2,10 @@ import PostCard from '@/components/post-card'
 import { getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
 
-export default function Categories({ params }: { params: { category: string } }) {
+export default function Category({ params }: { params: { category: string } }) {
   const posts = getBlogPosts().filter(post => post.metadata.category === params.category)
 
   if (!posts.length) {
-    // TODO: not found page
     notFound()
   }
 

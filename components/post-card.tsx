@@ -5,12 +5,13 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { formatDate } from '@/lib/post'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
-export default function PostCard({ post }: { post: any }) {
+export default function PostCard({ post, className }: { post: any, className?: string }) {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
-      <Link href={`/blog/${post.slug}`}>
+    <Card className={cn('hover:shadow-lg transition-shadow', className)}>
+      <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
         <CardHeader>
           <CardTitle>{post.metadata.title}</CardTitle>
           <CardDescription>{post.metadata.summary}</CardDescription>

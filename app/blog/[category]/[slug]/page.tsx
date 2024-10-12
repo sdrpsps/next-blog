@@ -7,7 +7,6 @@ export default function Post({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find(post => post.slug === params.slug)
 
   if (!post) {
-    // TODO: not found page
     notFound()
   }
 

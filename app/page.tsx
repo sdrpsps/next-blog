@@ -4,12 +4,12 @@ import TopCategories from '@/components/home/top-categories'
 
 export default function Home() {
   return (
-    <main className="flex justify-between gap-10">
+    <main className="flex flex-col items-center lg:flex-row lg:justify-between lg:items-start gap-10">
       <LatestPosts />
-      <div className="flex flex-col gap-10">
+      <section className="flex flex-col gap-10">
         <TopCategories />
         <PopularPosts />
-      </div>
+      </section>
     </main>
   )
 }
