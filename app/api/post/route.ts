@@ -2,13 +2,13 @@ import process from 'node:process'
 import prisma from '@/lib/db'
 
 export async function POST(request: Request) {
-  const { slug, title, category } = await request.json()
+  const { slug, title, cover, category } = await request.json()
 
   try {
     const isExist = await prisma.blog.findUnique({ where: { slug } })
 
     if (!isExist) {
-      await prisma.blog.create({ data: { slug, title, category } })
+      await prisma.blog.create({ data: { slug, title, cover, category } })
     }
     else {
       if (process.env.NODE_ENV === 'development') {

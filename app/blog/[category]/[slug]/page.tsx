@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: post.metadata.title,
       description: post.metadata.summary,
       url: `${process.env.BASE_URL}/blog/${post.metadata.category}/${post.slug}`,
+      images: [post.metadata.cover],
     },
   }
 }
@@ -51,7 +52,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <article className="prose dark:prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">
         <MDX source={post?.content} />
       </article>
-      <UpdateViews slug={post?.slug} title={post?.metadata.title} category={post?.metadata.category} />
+      <UpdateViews slug={post?.slug} title={post?.metadata.title} cover={post?.metadata.cover} category={post?.metadata.category} />
     </main>
   )
 }

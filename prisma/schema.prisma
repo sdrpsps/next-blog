@@ -18,6 +18,7 @@ model Blog {
   slug       String   @unique
   title      String
   category   String
+  cover      String
   view_count Int      @default(1)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
