@@ -5,8 +5,17 @@ import { useFormState, useFormStatus } from 'react-dom'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
-export function SubscribeForm() {
+function SubmitButton() {
   const { pending } = useFormStatus()
+
+  return (
+    <Button size="sm" type="submit" disabled={pending} aria-disabled={pending} aria-busy={pending}>
+      Subscribe
+    </Button>
+  )
+}
+
+export function SubscribeForm() {
   const [state, formAction] = useFormState(createSubscriber, {
     success: false,
     message: '',
@@ -24,9 +33,7 @@ export function SubscribeForm() {
           aria-required="true"
           aria-invalid={!state.success && !!state.message}
         />
-        <Button type="submit" disabled={pending} aria-disabled={pending} aria-busy={pending}>
-          {pending ? 'Subscribing...' : 'Subscribe'}
-        </Button>
+        <SubmitButton />
       </div>
       {state.message && (
         <p
