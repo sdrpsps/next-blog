@@ -1,3 +1,4 @@
+import type { Post } from '@/app/blog/[category]/types'
 import {
   Card,
   CardDescription,
@@ -10,16 +11,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 interface PostCardProps {
-  post: {
-    metadata: {
-      title: string
-      summary: string
-      publishedAt: string
-      cover: string
-      category: string
-    }
-    slug: string
-  }
+  post: Post
   className?: string
 }
 

@@ -1,9 +1,9 @@
-import { formatDate, getBlogPosts } from '@/lib/post'
-import Link from 'next/link'
+import type { Post } from '@/app/blog/[category]/types'
+import { getBlogPosts } from '@/lib/post'
 import PostCard from '../post/post-card'
 
 export default function LatestPosts() {
-  const posts = getBlogPosts()
+  const posts = getBlogPosts() as Post[]
 
   return (
     <div className="flex flex-col gap-10">

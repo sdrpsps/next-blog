@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import process from 'node:process'
 import Container from '@/components/container'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
@@ -6,6 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.BASE_URL),
   title: {
     template: '%s | Sunny\'s Blog',
     default: 'Sunny\'s Blog',

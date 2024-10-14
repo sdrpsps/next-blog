@@ -1,3 +1,4 @@
+import type { Post } from './types'
 import PostCard from '@/components/post/post-card'
 import { getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: { category: string 
 }
 
 export default function Category({ params }: { params: { category: string } }) {
-  const posts = getBlogPosts().filter(post => post.metadata.category === params.category)
+  const posts = getBlogPosts().filter(post => post.metadata.category === params.category) as Post[]
 
   if (!posts.length) {
     notFound()
