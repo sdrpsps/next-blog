@@ -45,6 +45,9 @@ export default function Footer() {
               <li>
                 <a href="mailto:sunny@bytespark.me">Contact Me</a>
               </li>
+              <li>
+                <a href="/sitemap.xml">Sitemap</a>
+              </li>
             </ul>
           </section>
 

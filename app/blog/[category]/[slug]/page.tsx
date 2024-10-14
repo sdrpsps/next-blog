@@ -1,3 +1,4 @@
+import process from 'node:process'
 import Breadcrumb from '@/components/breadcrumb'
 import MDX from '@/components/post/mdx'
 import UpdateViews from '@/components/post/update-views'
@@ -23,6 +24,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
+    openGraph: {
+      type: 'article',
+      publishedTime: post.metadata.publishedAt,
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      url: `${process.env.BASE_URL}/blog/${post.metadata.category}/${post.slug}`,
+    },
   }
 }
 

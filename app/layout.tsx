@@ -6,10 +6,19 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Sunny\'s Blog',
+  title: {
+    template: '%s | Sunny\'s Blog',
+    default: 'Sunny\'s Blog',
+  },
   description: 'Think, Write, Code',
   icons: {
     icon: '/logo.png',
+  },
+  keywords: ['Blog', 'Next.js', 'React', 'Vue', 'TypeScript', 'JavaScript'],
+  authors: [{ name: 'Sunny', url: 'https://github.com/sdrpsps' }],
+  creator: 'Sunny',
+  openGraph: {
+    images: ['/logo.png'],
   },
 }
 

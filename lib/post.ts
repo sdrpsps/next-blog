@@ -10,13 +10,13 @@ function getMDXFiles(dir: string) {
 }
 
 // Read data from those files
-function readMDXFile(filePath: fs.PathOrFileDescriptor) {
+export function readMDXFile(filePath: fs.PathOrFileDescriptor) {
   const rawContent = fs.readFileSync(filePath, 'utf-8')
   return matter(rawContent)
 }
 
 // present the mdx data and metadata
-function getMDXData(dir: string) {
+export function getMDXData(dir: string) {
   const mdxFiles = getMDXFiles(dir)
 
   return mdxFiles.map((file) => {
@@ -72,7 +72,9 @@ export function formatDate(date: string, includeRelative = false) {
 }
 
 export function getBlogPosts() {
-  return getMDXData(path.join(process.cwd(), 'app/blog/_contents'))
+  return getMDXData(path.join(process.cwd(), 'app/blog/_contents')).sort((a, b) => {
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  })
 }
 
 export async function getTopCategories() {
