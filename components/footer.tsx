@@ -1,13 +1,12 @@
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { TreePalm } from 'lucide-react'
 import LoadingBar from './loading-bar'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
+import { SubscribeForm } from './subscribe-form'
 
 export default function Footer() {
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 py-8">
-      <div className="container mx-auto divide-y space-y-4 p-4">
+      <div className="container mx-auto divide-y divide-gray-200 dark:divide-gray-700 space-y-4 p-4">
         <nav className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <section className="flex flex-col gap-2">
             <h2 className="flex items-center gap-2 text-neutral-600 dark:text-neutral-200">
@@ -31,7 +30,10 @@ export default function Footer() {
             </ul>
           </section>
 
-          <section className="flex items-center justify-center">
+          <section className="flex flex-col gap-2">
+            <h2 className="font-semibold text-neutral-600 dark:text-neutral-200">
+              To Be Done
+            </h2>
             <LoadingBar />
           </section>
 
@@ -53,10 +55,7 @@ export default function Footer() {
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Subscribe to my newsletter to stay up-to-date with the latest news and updates.
             </p>
-            <form action="" className="flex items-center gap-2">
-              <Input type="email" placeholder="Enter your email" />
-              <Button type="submit">Subscribe</Button>
-            </form>
+            <SubscribeForm />
           </section>
         </nav>
 
