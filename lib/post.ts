@@ -1,3 +1,4 @@
+import type { Heading } from '@/app/blog/[category]/types'
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -75,6 +76,33 @@ export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app/blog/_contents')).sort((a, b) => {
     return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
   })
+}
+
+export function getHeadings(markdown: string): Heading[] {
+  const headingRegex = /^(##\s+(.+)|###\s+(.+))/gm
+  const toc: Heading[] = []
+  let currentH2: Heading | null = null
+
+  markdown.replace(headingRegex, (_, __, h2, h3) => {
+    if (h2) {
+      currentH2 = {
+        text: h2,
+        level: 2,
+        children: [],
+      }
+      toc.push(currentH2)
+    }
+    else if (h3 && currentH2) {
+      currentH2.children.push({
+        text: h3,
+        level: 3,
+        children: [],
+      })
+    }
+    return ''
+  })
+
+  return toc
 }
 
 export async function getTopCategories() {

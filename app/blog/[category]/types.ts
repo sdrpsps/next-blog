@@ -9,3 +9,9 @@ export interface Post {
   slug: string
   content: string
 }
+
+export interface Heading {
+  text: string
+  level: number
+  children: Heading[]
+}
