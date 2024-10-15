@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import MDX from '@/components/post/mdx'
+import MDX from '@/components/mdx/mdx'
 import { readMDXFile } from '@/lib/post'
 
 export const metadata: Metadata = {
