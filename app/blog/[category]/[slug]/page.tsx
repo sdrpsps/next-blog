@@ -1,6 +1,6 @@
 import process from 'node:process'
 import Breadcrumb from '@/components/breadcrumb'
-import MDX from '@/components/post/mdx'
+import MDX from '@/components/mdx/mdx'
 import UpdateViews from '@/components/post/update-views'
 import { formatDate, getBlogPosts } from '@/lib/post'
 import { notFound } from 'next/navigation'
