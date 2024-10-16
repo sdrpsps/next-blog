@@ -41,11 +41,11 @@ export default function Footer() {
             <h2 className="font-semibold text-neutral-600 dark:text-neutral-200">
               Links
             </h2>
-            <ul className="flex flex-col gap-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
-              <li>
+            <ul className="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <li className="hover:text-gray-700 dark:hover:text-gray-300">
                 <a href="mailto:sunny@bytespark.me">Contact Me</a>
               </li>
-              <li>
+              <li className="hover:text-gray-700 dark:hover:text-gray-300">
                 <a href="/sitemap.xml">Sitemap</a>
               </li>
             </ul>

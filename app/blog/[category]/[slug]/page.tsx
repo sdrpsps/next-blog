@@ -48,7 +48,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       <Breadcrumb category={post?.metadata.category} title={post?.metadata.title} />
       <section className="space-y-2">
         <h1 className="text-3xl font-bold">{post?.metadata.title}</h1>
-        <p className="text-sm text-gray-500">{formatDate(post?.metadata.publishedAt)}</p>
+        <p className="text-sm text-gray-500 italic">{formatDate(post?.metadata.publishedAt)}</p>
       </section>
       <div className="flex justify-between gap-10">
         <article className="prose dark:prose-invert prose-code:before:hidden prose-code:after:hidden max-w-none">

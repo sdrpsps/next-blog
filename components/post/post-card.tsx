@@ -29,7 +29,7 @@ export default function PostCard({ post, className }: PostCardProps) {
           />
           <CardTitle>{post.metadata.title}</CardTitle>
           <CardDescription>{post.metadata.summary}</CardDescription>
-          <CardDescription>{formatDate(post.metadata.publishedAt)}</CardDescription>
+          <CardDescription className='italic'>{formatDate(post.metadata.publishedAt)}</CardDescription>
         </CardHeader>
       </Link>
     </Card>
