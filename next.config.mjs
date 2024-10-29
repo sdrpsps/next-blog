@@ -3,8 +3,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { hostname: 'static.bytespark.me' },
-      { hostname: 'img.meituan.net' },
     ],
+  },
+  env: {
+    BASE_URL: 'https://bytespark.me',
   },
 }
 
