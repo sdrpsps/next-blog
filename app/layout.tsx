@@ -4,7 +4,6 @@ import Container from '@/components/container'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import { ThemeProvider } from '@/components/theme-provider'
-import { HarmonySans } from './fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased ${HarmonySans.className}`}>
+      <body className="antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
