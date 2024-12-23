@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Check if DATABASE_URL is set
-if [ -z "$DATABASE_URL" ]; then
-  echo "Error: DATABASE_URL is not set."
+# Check if POSTGRES_PRISMA_URL is set
+if [ -z "$POSTGRES_PRISMA_URL" ]; then
+  echo "Error: POSTGRES_PRISMA_URL is not set."
   exit 1
 fi
 
